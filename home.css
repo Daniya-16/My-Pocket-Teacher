@@ -1,0 +1,134 @@
+/* --- Glassmorphism UI Identity Design Styles --- */
+:root {
+    --bg-gradient: linear-gradient(135deg, #11131e 0%, #1a1c29 100%);
+    --card-bg: rgba(30, 32, 50, 0.65);
+    --card-border: rgba(255, 255, 255, 0.04);
+    --text-main: #f3f4f6;
+    --text-muted: #8a8f9f;
+    --accent-teal: #00f2fe;
+    --accent-pink: #f64f59;
+}
+
+body.light-mode {
+    --bg-gradient: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-border: rgba(0, 0, 0, 0.08);
+    --text-main: #2c3e50;
+    --text-muted: #7f8c8d;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    transition: background 0.3s;
+}
+
+/* --- Bootstrap Enhanced Components Layering overrides --- */
+.bg-dark-glass {
+    background: rgba(15, 16, 26, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.sidebar {
+    border-right: 1px solid var(--card-border);
+    flex-shrink: 0;
+}
+@media (min-width: 768px) {
+    .sidebar { width: 75px; }
+}
+
+.icon {
+    opacity: 0.6;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.icon.active, .icon:hover { opacity: 1; transform: scale(1.1); }
+
+.search-bar { background: var(--card-bg); color: var(--text-main); }
+.search-bar::placeholder { color: var(--text-muted); }
+.search-bar:focus { background: var(--card-bg); color: var(--text-main); box-shadow: none; }
+
+.bento-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    backdrop-filter: blur(16px);
+}
+
+.bento-title {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+/* Form inputs boxes controls */
+.bento-textarea { height: 95px; background: rgba(0,0,0,0.2); color: var(--text-main); resize: none; }
+.bento-textarea:focus { background: rgba(0,0,0,0.25); color: var(--text-main); box-shadow: none; }
+.bento-input { background: rgba(0,0,0,0.2); color: var(--text-main); }
+.bento-input:focus { background: rgba(0,0,0,0.25); color: var(--text-main); box-shadow: none; }
+
+.btn-save { background: linear-gradient(45deg, var(--accent-pink), #ff758c); color: white; }
+.btn-dark-action { background: #11131e; border: 1px solid var(--card-border); }
+.btn-secondary-circle { background: rgba(255, 255, 255, 0.08); border: none; color: #fff; }
+
+/* Category Cards styling elements profiles */
+.tag-card { color: #111; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: transform 0.2s; }
+.tag-card:hover { transform: translateY(-3px); }
+.pastel-yellow { background: #ffeaa7; }
+.pastel-green { background: #cbf3f0; }
+.pastel-pink { background: #ffccd5; }
+.pastel-purple { background: #e0aaff; }
+
+/* Voice UI Module Box */
+.voice-widget { background: linear-gradient(135deg, rgba(246, 79, 89, 0.15), rgba(30, 32, 50, 0.4)); }
+
+/* Dynamic Generated Entries List Item Rows */
+.todo-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+}
+
+.note-tag-badge {
+    background: rgba(0, 242, 254, 0.1);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    color: var(--accent-teal);
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* --- Interactive Calendar Matrix --- */
+.month-pill { background: #ffccd5; color: #111; font-size: 0.85rem; }
+.cal-day-cell {
+    font-size: 0.88rem;
+    height: 34px;
+    width: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--text-main);
+}
+.cal-day-cell:hover:not(.empty) { background: rgba(255,255,255,0.12); }
+.cal-day-cell.selected-date { background: var(--accent-pink) !important; color: white !important; font-weight: bold; }
+.cal-day-cell.has-notes { border-bottom: 3px solid var(--accent-teal); border-radius: 0; }
+
+/* Light Mode Input Elements Sync Tweaks */
+body.light-mode .bento-textarea, 
+body.light-mode .bento-input,
+body.light-mode .todo-row,
+body.light-mode .search-bar { background: rgba(255,255,255,0.7); color: #2c3e50; border: 1px solid rgba(0,0,0,0.08); }
+body.light-mode .text-light, body.light-mode .cal-nav-btn { color: #2c3e50 !important; }
+body.light-mode .month-pill { background: #ffb3c1; }
+body.light-mode .btn-dark-action { background: #2c3e50; }

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pocket Teacher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body class="dark-mode">
+
+  <!-- 1. NEW OUTER WRAPPER (Top-to-Bottom Layout) -->
+    <div class="min-vh-100 d-flex flex-column">
+        
+       <!-- THE UPPER NAVIGATION BAR -->
+<nav class="top-navbar d-flex align-items-center justify-content-between">
+    
+    <!-- Left Side: Brand Logo -->
+    <div class="logo fs-4" onclick="window.location.href='profile.html'" title="Go to Home">🌸</div>
+    
+    <!-- Right Side: Navigation Links with Logout at the END -->
+    <div class="nav-links-container fs-4">
+        
+        <!-- Standard Workspace Links -->
+        <div class="icon" onclick="window.location.href='home.html'" title="Home Dashboard">🏡</div>
+        <div class="icon active" onclick="window.location.href='planner.html'" title="Weekly Planner">📅</div>
+        <div class="icon" title="Tracker">👤</div>
+        <div class="icon" title="Notebooks">📚</div>
+        
+        <!-- Divider Dash -->
+        <span class="nav-separator fs-5 ms-2 me-2">–</span>
+        
+        <!-- 🔐 LOGOUT / LOGIN OPTION (Always Last) -->
+        <!-- Clicking this logs the user out and sends them to the login screen -->
+        <div class="icon" style="color: var(--accent-pink);" onclick="window.location.href='login.html'" title="Logout / Sign In">
+            🚪
+        </div>
+        
+    </div>
+    
+</nav>
+
+        <main class="da
+        shboard-content flex-grow-1 p-4 container-fluid">
+            
+            <header class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+                <h2 class="h4 mb-0 fw-bold">Hello Daniya!</h2>
+                <div class="d-flex align-items-center gap-2">
+                    <input type="text" id="searchInput" class="form-control rounded-pill border-0 px-3 search-bar" placeholder="Search notes...">
+                    <button id="themeToggle" class="btn btn-sm btn-outline-light rounded-pill">☀️ Light Mode</button>
+                </div>
+            </header>
+
+            <div class="row g-4">
+                
+                <div class="col-12 col-xl-7">
+                    
+                    <div class="bento-card p-4 mb-4">
+                        <h3 class="bento-title mb-3">Quick Tag Filters</h3>
+                        <div class="row g-2">
+                            <div class="col-6 col-sm-3"><div class="tag-card pastel-yellow text-center p-3 rounded-3" onclick="filterByTag('Personal')">📝 Personal</div></div>
+                            <div class="col-6 col-sm-3"><div class="tag-card pastel-green text-center p-3 rounded-3" onclick="filterByTag('Work')">💼 Work</div></div>
+                            <div class="col-6 col-sm-3"><div class="tag-card pastel-pink text-center p-3 rounded-3" onclick="filterByTag('Ideas')">💡 Ideas</div></div>
+                            <div class="col-6 col-sm-3"><div class="tag-card pastel-purple text-center p-3 rounded-3" onclick="filterByTag('Urgent')">🔥 Urgent</div></div>
+                        </div>
+                    </div>
+
+                    <div class="bento-card p-4">
+                        <h3 id="inputFormTitle" class="bento-title mb-3">Create New Note</h3>
+                        <textarea id="noteContent" class="form-control mb-3 bento-textarea border-0" placeholder="Type something or use the voice recorder widget..."></textarea>
+                        <div class="d-flex gap-2">
+                            <input type="text" id="noteTags" class="form-control bento-input border-0" placeholder="Tags (e.g. Work, Ideas)">
+                            <button id="addNoteBtn" class="btn btn-save px-4 fw-bold">Save Note</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-xl-5">
+                    
+                    <div class="bento-card p-4 mb-4 voice-widget text-white">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="audio-avatar fs-2 bg-white bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px;">🎙️</div>
+                            <div>
+                                <h4 class="h6 mb-1 fw-bold">Voice Notes Engine</h4>
+                                <p id="recordingStatus" class="small text-white-50 mb-0">Ready to capture speech</p>
+                            </div>
+                        </div>
+                        <button id="micBtn" class="btn btn-info w-100 text-white fw-bold py-2 rounded-3">🎤 Start Recording</button>
+                    </div>
+
+                    <div class="bento-card p-4 mini-calendar">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <button id="prevMonthBtn" class="btn btn-link text-decoration-none text-light p-0">←</button>
+                            <span id="currentMonthYear" class="month-pill px-3 py-1 fw-bold rounded-pill">July 2026</span>
+                            <button id="nextMonthBtn" class="btn btn-link text-decoration-none text-light p-0">→</button>
+                        </div>
+                        <div class="calendar-wrapper">
+                            <div class="calendar-weekdays d-grid text-center text-muted fw-bold mb-2 small" style="grid-template-columns: repeat(7, 1fr);">
+                                <span>MO</span><span>TU</span><span>WE</span><span>TH</span><span>FR</span><span>SA</span><span>SU</span>
+                            </div>
+                            <div id="calendarDaysGrid" class="calendar-days-grid d-grid text-center" style="grid-template-columns: repeat(7, 1fr); row-gap: 8px;">
+                                </div>
+                        </div>
+                        <div class="d-flex gap-2 mt-3">
+                            <button id="clearDateFilterBtn" class="btn btn-dark-action flex-grow-1 py-2 text-white rounded-pill text-sm">Show All Notes</button>
+                            <button id="todayBtn" class="btn btn-secondary-circle rounded-circle d-flex align-items-center justify-content-center" style="width:38px; height:38px;">🔄</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="bento-card p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h3 class="bento-title mb-0">Active Notes & Tasks</h3>
+                            <span id="filterLabel" class="badge bg-info text-dark">Showing: All</span>
+                        </div>
+                        <div id="notesGrid" class="d-flex flex-column gap-2">
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="home.js"></script>
+</body>
+</html>

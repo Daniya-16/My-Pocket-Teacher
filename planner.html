@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Planner Layout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="planner.css">
+</head>
+<body class="planner-page-theme planner-font">
+    <div class="min-vh-100 d-flex flex-column">
+<nav class="top-navbar d-flex align-items-center justify-content-between">
+    <div class="logo fs-4" onclick="window.location.href='profile.html'" title="Go to Home">🌸</div>
+    <div class="nav-links-container fs-4">
+        <div class="icon" onclick="window.location.href='home.html'" title="Home Dashboard">🏡</div>
+        <div class="icon active" onclick="window.location.href='planner.html'" title="Weekly Planner">📅</div>
+        <div class="icon" title="Tracker">👤</div>
+        <div class="icon" title="Notebooks">📚</div>
+        <span class="nav-separator fs-5 ms-2 me-2">–</span>
+        <div class="icon" style="color: var(--accent-pink);" onclick="window.location.href='login.html'" title="Logout / Sign In">
+            🚪
+        </div>
+    </div>
+</nav>
+        <main class="flex-grow-1 p-4 container-fluid">
+            <header class="d-flex flex-column flex-sm-row justify-content-between align-items-center mb-4 border-bottom border-secondary pb-3 border-dotted">
+                <div>
+                    <h1 class="planner-title mb-0">weekly planner <span class="decor-sparkle">♡ ✦</span></h1>
+                    <span class="small text-muted text-uppercase tracking-wider">Plan with purpose • Stay focused • Make it happen</span>
+                </div>
+            </header>
+        <main class="flex-grow-1 p-4 container-fluid">
+            <header class="d-flex flex-column flex-sm-row justify-content-between align-items-center mb-4 border-bottom border-secondary pb-3 border-dotted">
+                <div>
+                    <h1 class="planner-title mb-0">weekly planner <span class="decor-sparkle">♡ ✦</span></h1>
+                    <span class="small text-muted text-uppercase tracking-wider">Plan with purpose • Stay focused • Make it happen</span>
+                </div>
+                <div class="mt-2 mt-sm-0 p-2 planner-box d-flex align-items-center gap-2 small">
+                    <span class="text-muted">WEEK OF:</span>
+                    <input type="text" class="text-center fw-bold" style="width:110px;" placeholder="MM/DD/YYYY">
+                </div>
+            </header>
+            <div class="row g-4 mb-4">
+                <div class="col-12 col-md-4">
+                    <div class="planner-box p-3 h-100">
+                        <h4 class="border-bottom pb-2 mb-3 border-dashed"><span class="decor-sparkle">♡</span> PRIORITIES THIS WEEK</h4>
+                        <div class="d-flex flex-column gap-2 small">
+                            <div class="d-flex gap-2"><span>1.</span><input type="text" placeholder="Set prime objective..."></div>
+                            <div class="d-flex gap-2"><span>2.</span><input type="text" placeholder="Set secondary focus..."></div>
+                            <div class="d-flex gap-2"><span>3.</span><input type="text" placeholder="Set auxiliary item..."></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="planner-box p-3 h-100">
+                        <h4 class="border-bottom pb-2 mb-3 border-dashed">🎯 WEEKLY GOALS</h4>
+                        <div class="d-flex flex-column gap-2">
+                            <div class="d-flex align-items-center gap-2 border-bottom border-dotted pb-1"><input type="checkbox" class="form-check-input mt-0"> <input type="text" class="small" placeholder="Add target goal milestones..."></div>
+                            <div class="d-flex align-items-center gap-2 border-bottom border-dotted pb-1"><input type="checkbox" class="form-check-input mt-0"> <input type="text" class="small" placeholder="Add target goal milestones..."></div>
+                            <div class="d-flex align-items-center gap-2 border-bottom border-dotted pb-1"><input type="checkbox" class="form-check-input mt-0"> <input type="text" class="small" placeholder="Add target goal milestones..."></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="planner-box p-3 h-100 position-relative">
+                        <h4 class="border-bottom pb-2 mb-2 border-dashed">🔔 REMINDER</h4>
+                        <textarea class="w-100 small border-0 bg-transparent h-75" style="resize:none;" placeholder="Don't stop until you're proud. ♡"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="planner-box p-3 mb-4 table-responsive">
+                <table class="table table-bordered align-middle text-center mb-0 small timeblock-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 14%;">TIME</th>
+                            <th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th>
+                        </tr>
+                    </thead>
+                    <tbody id="timeBlockBody">
+                        </tbody>
+                </table>
+            </div>
+            <div class="row g-4">
+                <div class="col-12 col-lg-4">
+                    <div class="planner-box p-3 h-100">
+                        <h4 class="border-bottom pb-2 mb-3 border-dashed">📋 TO-DO LIST</h4>
+                        <div class="d-flex flex-column gap-2">
+                            <div class="d-flex align-items-center gap-2 border-bottom border-dotted pb-1"><input type="checkbox" class="form-check-input mt-0"> <input type="text" class="small" placeholder="Enter list checklist item..."></div>
+                            <div class="d-flex align-items-center gap-2 border-bottom border-dotted pb-1"><input type="checkbox" class="form-check-input mt-0"> <input type="text" class="small" placeholder="Enter list checklist item..."></div>
+                            <div class="d-flex align-items-center gap-2 border-bottom border-dotted pb-1"><input type="checkbox" class="form-check-input mt-0"> <input type="text" class="small" placeholder="Enter list checklist item..."></div>
+                            <div class="d-flex align-items-center gap-2 border-bottom border-dotted pb-1"><input type="checkbox" class="form-check-input mt-0"> <input type="text" class="small" placeholder="Enter list checklist item..."></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="planner-box p-3 h-100">
+                        <h4 class="border-bottom pb-2 mb-3 border-dashed">🌸 HABITS TRACKER</h4>
+                        <table class="table table-bordered table-sm align-middle text-center mb-0 small text-muted">
+                            <thead>
+                                <tr style="font-size: 0.72rem;"><th>HABIT</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" class="text-center small" placeholder="Habit 1..."></td>
+                                    <td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="text-center small" placeholder="Habit 2..."></td>
+                                    <td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="text-center small" placeholder="Habit 3..."></td>
+                                    <td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td><td><span class="form-check-circle"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="planner-box p-3 h-100">
+                        <h4 class="border-bottom pb-2 mb-2 border-dashed">📝 NOTES</h4>
+                        <textarea class="notes-ruled-lines w-100" placeholder="Jot down quick thoughts here..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <footer class="text-center mt-5 mb-2 small text-muted tracking-widest">
+                <p>✦ BE PROUD OF HOW FAR YOU'VE COME ♡</p>
+            </footer>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>       const tbody = document.getElementById('timeBlockBody');
+        for (let hour = 6; hour <= 22; hour++) {
+            const displayHour = hour > 12 ? hour - 12 : hour;
+            const ampm = hour >= 12 ? 'PM' : 'AM';
+            
+            const rowStr = `
+                <tr>
+                    <td class="planner-time-cell">${displayHour}:00 ${ampm}</td>
+                    <td><input type="text" class="text-center small"></td>
+                    <td><input type="text" class="text-center small"></td>
+                    <td><input type="text" class="text-center small"></td>
+                    <td><input type="text" class="text-center small"></td>
+                    <td><input type="text" class="text-center small"></td>
+                    <td><input type="text" class="text-center small"></td>
+                    <td><input type="text" class="text-center small"></td>
+                </tr>
+            `;
+            tbody.insertAdjacentHTML('beforeend', rowStr);
+        }
+        document.querySelectorAll('.form-check-circle').forEach(circle => {
+            circle.addEventListener('click', () => {
+                const activeColor = document.body.classList.contains('light-mode') ? '#9d7ec7' : '#ffffff';
+                circle.style.backgroundColor = circle.style.backgroundColor ? '' : activeColor;
+            });
+        });
+        if (localStorage.getItem('dashboard-theme') === 'light-mode') {
+            document.body.classList.add('light-mode');
+        }
+    </script>
+    <script src="planner.js"></script>
+</body>
+</html>

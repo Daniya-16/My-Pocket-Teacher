@@ -1,0 +1,89 @@
+.profile-hero-title {
+    font-size: calc(2.5rem + 3.5vw);
+    line-height: 0.85;
+    font-weight: 900;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    color: var(--text-main);
+}
+.profile-hero-subtitle {
+    font-size: 1.8rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--planner-decor);
+    margin-top: -10px;
+}
+.status-badge {
+    background: rgba(157, 126, 199, 0.15);
+    border: 1px solid var(--planner-border-bright);
+    color: var(--text-main);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    padding: 6px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #00ffcc;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ffcc;
+}
+.metric-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1;
+}
+.tool-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--planner-border);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+body.light-mode .tool-box {
+    background: rgba(0, 0, 0, 0.02);
+}
+.tool-box:hover {
+    border-color: var(--planner-border-bright);
+    transform: translateY(-2px);
+}
+.project-card {
+    background: var(--planner-box-bg);
+    border: 1px solid var(--planner-border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--planner-border-bright);
+}
+.project-img-placeholder {
+    height: 160px;
+    background: linear-gradient(135deg, var(--planner-table-header) 0%, var(--planner-time-bg) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+.process-step {
+    position: relative;
+    padding-left: 30px;
+}
+.process-step::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--planner-decor);
+    border: 3px solid var(--planner-bg);
+    z-index: 2;
+}
